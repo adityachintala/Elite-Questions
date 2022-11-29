@@ -87,7 +87,6 @@ class d1p1 {
         for (int i = 0; i < n; i++) {
             keys[i] = sc.nextInt();
         }
-        sc.close();
         System.out.println(maxRooms(keys));
     }
 }
