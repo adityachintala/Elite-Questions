@@ -1,2 +1,2 @@
 # Elite-Questions
-Daily Elite questions that are being given by Mr. Nagi Reddy and Mr. Neil Gogte
+This repo contains elite questions that are being given by Mr.Nagi Reddy and Mr.Neil Gogte for 2023 KMIT pass-out students. 
