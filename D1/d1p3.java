@@ -94,7 +94,6 @@ public class d1p3 {
         for (int i = 0; i < n; i++) {
             set.add(find(parent, i));
         }
-        System.out.print(Arrays.toString(parent));
         System.out.println(set.size());
     }
 
