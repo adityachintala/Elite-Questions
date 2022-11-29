@@ -114,7 +114,7 @@ public class d2p1 {
         String a = sc.next();
         String b = sc.next();
         String c = sc.next();
-
+        sc.close();
         System.out.println(func(a, b, c));
 
     }

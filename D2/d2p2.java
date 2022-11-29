@@ -79,11 +79,11 @@ public class d2p2 {
                 map[i][j] = sc.nextInt();
             }
         }
-        
-        System.out.println(Arrays.toString(out));
-        for(int i = 0; i < n; i++) {
-            System.out.println(Arrays.toString(map[i]));
-        }
+        sc.close();
+        // System.out.println(Arrays.toString(out));
+        // for(int i = 0; i < n; i++) {
+        //     System.out.println(Arrays.toString(map[i]));
+        // }
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
         path.add(0);
