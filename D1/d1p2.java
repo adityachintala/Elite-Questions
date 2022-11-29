@@ -59,6 +59,7 @@ class d1p2 {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
         int n = sc.nextInt();
+        sc.close();
         System.out.println(minSteps(m, n));
     }
 }

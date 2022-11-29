@@ -90,6 +90,7 @@ public class d1p3 {
             int v = sc.nextInt();
             union(parent, u, v);
         }
+        sc.close();
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < n; i++) {
             set.add(find(parent, i));
