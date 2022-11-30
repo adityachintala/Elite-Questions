@@ -1,4 +1,4 @@
-There are N computers in a network, all the computers are connected as tree 
+//There are N computers in a network, all the computers are connected as tree 
 // structure. And one new connection is added in the Network. The computers in 
 // the network are identified with their IDs, the IDs are numbered between 1 to N.
 
