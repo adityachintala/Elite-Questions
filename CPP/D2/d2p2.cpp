@@ -1,9 +1,52 @@
+/**
+ * There are N cities, the cities are connected through one way routes and 
+there is no cycle between the routes. Each city is numbered from 0 to N-1.
+The map of the cities is given as follows: 
+map[i] is a list of all the cities you can travel from city[i].
+(i.e., there is a one-way route from city[i] to node[map[i][j]]).
+Your task is to findout all the possible travel routes between city-[0] to 
+city-[N-1]. 
+ 
+Input Format:
+-------------
+Line-1: An integer N , number of cities.
+Line-2: N space separated integers, number of outgoing routes from city[i], 0<=i<N.
+Next N lines: "out[i]" space separated integers, routes from city[i] where 0<=i<N
+ 
+Output Format:
+--------------
+Print the list of travel routes.
+Hint: find the routes in the input order.
+ 
+Sample Input-1:
+---------------
+4
+2 1 1 0
+1 2
+3
+3
+Sample Output-1:
+----------------
+[[0, 1, 3], [0, 2, 3]]
+ 
+Sample Input-2:
+---------------
+5
+3 3 1 1 0
+4 3 1
+3 2 4
+3
+4
+ 
+Sample Output-2:
+----------------
+[[0, 4], [0, 3, 4], [0, 1, 3, 4], [0, 1, 2, 3, 4], [0, 1, 4]]
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
 void f(int city,int end,vector<int> temp,vector<vector<int>>& res,vector<vector<int>> graph){
-    // debug(city);
-    // debug(temp);
     if(city==end){
         res.push_back(temp);
         return;
