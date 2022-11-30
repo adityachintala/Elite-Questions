@@ -99,5 +99,6 @@ public class d3p1 {
             union(parent, u, v);
         }
         System.out.println(x + " " + y);
+        sc.close();
     }
 }

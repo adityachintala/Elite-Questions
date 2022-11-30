@@ -74,5 +74,6 @@ public class d3p3 {
             res += "" + enu.nextElement();
         }
         System.out.println(res);
+        sc.close();
     }
 }

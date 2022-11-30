@@ -126,5 +126,6 @@ public class d3p2 {
             ;
         }
         System.out.println(Arrays.toString(result));
+        sc.close();
     }
 }
