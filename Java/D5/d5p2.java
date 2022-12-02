@@ -93,6 +93,7 @@ public class d5p2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] relations = sc.nextLine().split(" ");
+        sc.close();
         List<Relations> list = new ArrayList<>();
         char minChar = 'z', maxChar = 'a';
         for (String relation : relations) {
