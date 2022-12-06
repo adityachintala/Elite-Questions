@@ -1,5 +1,7 @@
 # Compiled class file
 *.class
+*.vscode
+*.vscode-test
 
 # Log file
 *.log
