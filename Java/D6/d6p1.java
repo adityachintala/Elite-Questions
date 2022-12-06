@@ -100,7 +100,7 @@ public class d6p1 {
                 wall[i][j] = sc.nextInt();
             }
         }
-
+        sc.close();
         countUniqueIslands(wall);
 
     }
