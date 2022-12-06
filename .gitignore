@@ -1,7 +1,9 @@
 # Compiled class file
 *.class
-*.vscode
-*.vscode-test
+
+# ignore the following folders
+*.vscode/
+*.vscode-test/
 
 # Log file
 *.log
