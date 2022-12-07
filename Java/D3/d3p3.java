@@ -44,6 +44,7 @@ public class d3p3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
+        sc.close();
         Set<Character> set = new LinkedHashSet<>();
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
@@ -68,10 +69,9 @@ public class d3p3 {
             stack.push(ch);
             set.add(ch);
         }
-        Enumeration enu = stack.elements();
         String res = "";
-        while (enu.hasMoreElements()) {
-            res += "" + enu.nextElement();
+        while (!stack.isEmpty()) {
+            res = stack.pop() + res;
         }
         System.out.println(res);
         sc.close();
