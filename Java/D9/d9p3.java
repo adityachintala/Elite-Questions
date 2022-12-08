@@ -60,7 +60,6 @@ Sample Output-2:
 true
  
 */
-
 import java.util.*;
 
 /**
@@ -68,8 +67,14 @@ import java.util.*;
  */
 public class d9p3 {
 
-    static boolean feeltheLove(String s1, String s2, int s1idx1, int s1idx2, int s2idx1, int s2idx2) {
-
+    static boolean isPalindrome(String s) {
+        int n = s.length();
+        for (int i = 0; i < n / 2; i++) {
+            if (s.charAt(i) != s.charAt(n - i - 1)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -80,7 +85,14 @@ public class d9p3 {
         int n = s1.length();
         boolean flag = false;
         for (int i = 0; i < n; i++) {
-            
+            String s1prefix = s1.substring(0, i);
+            String s1suffix = s1.substring(i, n);
+            String s2prefix = s2.substring(0, i);
+            String s2suffix = s2.substring(i, n);
+            if (isPalindrome(s1prefix + s2suffix) || isPalindrome(s2prefix + s1suffix)) {
+                flag = true;
+                break;
+            }
         }
         System.out.println(flag);
     }
