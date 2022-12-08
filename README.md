@@ -8,6 +8,8 @@ This repo contains elite questions that are being given by Mr.Nagi Reddy and Mr.
     * [Day 4](https://github.com/adityachintala/Elite-Questions/tree/main/Java/D4)
     * [Day 5](https://github.com/adityachintala/Elite-Questions/tree/main/Java/D5)
     * [Day 6](https://github.com/adityachintala/Elite-Questions/tree/main/Java/D6)
+    * [Day 7](https://github.com/adityachintala/Elite-Questions/tree/main/Java/D7)
+    * [Day 8](https://github.com/adityachintala/Elite-Questions/tree/main/Java/D8)
     <br><br>
 * [CPP Solutions](https://github.com/adityachintala/Elite-Questions/tree/main/CPP)
     * [Day 1](https://github.com/adityachintala/Elite-Questions/tree/main/CPP/D1)
@@ -16,3 +18,5 @@ This repo contains elite questions that are being given by Mr.Nagi Reddy and Mr.
     * [Day 4](https://github.com/adityachintala/Elite-Questions/tree/main/CPP/D4)
     * [Day 5](https://github.com/adityachintala/Elite-Questions/tree/main/CPP/D5)
     * [Day 6](https://github.com/adityachintala/Elite-Questions/tree/main/CPP/D6)
+    * [Day 7](https://github.com/adityachintala/Elite-Questions/tree/main/CPP/D7)
+    * [Day 8](https://github.com/adityachintala/Elite-Questions/tree/main/CPP/D8)
