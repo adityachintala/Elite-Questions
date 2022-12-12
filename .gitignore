@@ -5,6 +5,8 @@
 *.vscode/
 *.vscode-test/
 
+tempCodeRunner*
+
 # Log file
 *.log
 
