@@ -1,5 +1,6 @@
 # Compiled class file
 *.class
+*.exe
 
 # ignore the following folders
 *.vscode/
