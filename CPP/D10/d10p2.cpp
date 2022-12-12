@@ -40,6 +40,7 @@
 // false
 
 
+// APPROACH 1:
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -67,4 +68,25 @@ int main(){
         return 0;
     }
     cout<<"false"<<endl;
+}
+
+
+
+// APPROACH 2:
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int m,n,p;
+    cin>>m>>n>>p;
+    if(m+n<p){
+        cout<<"false"<<endl;
+        return 0;
+    }
+    if(m%2==0 && n%2==0 && p%2!=0){
+        cout<<"false"<<endl;
+        return 0;
+    }
+    cout<<"true"<<endl;
+    return 0;
 }
