@@ -67,9 +67,10 @@ public class d37p3 {
         }
         int res = 0;
         for (int i = 0; i < n; i++) {
-            res |= arr[i];
-            for (int j = i + 1; j < n; j++) {
-                res |= arr[i] + arr[j];
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum += arr[j];
+                res |= sum;
             }
         }
         System.out.println(res);
