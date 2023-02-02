@@ -63,7 +63,7 @@ public class d42p3 {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-
+        sc.close();
         int dp[] = new int[n];
         dp[0] = arr[0];
         dp[1] = Math.max(arr[0], arr[1]);
