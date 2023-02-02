@@ -74,41 +74,41 @@ So, the minimized workload is 8 tasks.
 
 */
 
-    import java.util.*;
+import java.util.*;
 
-    public class d8p1 {
+public class d8p1 {
 
-        static int goldsmansachs(int workload[], int p) {
-            int low = Integer.MAX_VALUE, high = 0;
-            for(int i : workload) {
-                low = Math.min(low, i);
-                high = Math.max(high, i);
-            }
-            while (low < high) {
-                int mid = (low) + (high - low) / 2;
-                int count = 0;
-                for (int i : workload) {
-                    count += (i - 1) / mid;
-                }
-                if (count <= p) {
-                    high = mid;
-                } else {
-                    low = mid + 1;
-                }
-            }
-            return low;
-        }
-
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            int p = sc.nextInt();
-            int workload[] = new int[n];
-            for (int i = 0; i < n; i++) {
-                workload[i] = sc.nextInt();
-            }
-            sc.close();
-            System.out.println(goldsmansachs(workload, p));
-        }
-        
+  static int goldsmansachs(int workload[], int p) {
+    int low = Integer.MAX_VALUE, high = 0;
+    for (int i : workload) {
+      low = Math.min(low, i);
+      high = Math.max(high, i);
     }
+    while (low < high) {
+      int mid = (low) + (high - low) / 2;
+      int count = 0;
+      for (int i : workload) {
+        count += (i - 1) / mid;
+      }
+      if (count <= p) {
+        high = mid;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return low;
+  }
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int p = sc.nextInt();
+    int workload[] = new int[n];
+    for (int i = 0; i < n; i++) {
+      workload[i] = sc.nextInt();
+    }
+    sc.close();
+    System.out.println(goldsmansachs(workload, p));
+  }
+
+}
