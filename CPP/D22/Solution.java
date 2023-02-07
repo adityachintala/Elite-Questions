@@ -36,10 +36,6 @@
 // 80
 
 
-
-
-import java.util.*;
-
 public class Solution {
 // Segment Tree Node structure
     class SegmentTreeNode {
