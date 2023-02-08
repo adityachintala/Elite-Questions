@@ -39,38 +39,39 @@
 import java.util.*;
 
 public class Solution {
-    int[] nums;
-    int[] tree;
     int n;
-
-    public Solution(int[] nums) {
-        this.nums = nums;
+    int arr[],ele[];
+    public Solution(int nums[]){
         n = nums.length;
-        tree = new int[n + 1];
-        for (int i = 0; i < n; i++) {
-            update(i, nums[i]);
+        ele = new int[n];
+        arr = new int[n+1];
+        for(int i=0;i<n;i++){
+            updateHelper(i,nums[i]);
+            ele[i] = nums[i];
         }
     }
-
-    void update(int ind, int val) {
-        ind++;
-        while (ind <= n) {
-            tree[ind] += val;
+    public void updateHelper(int i,int val){
+        int ind = i+1;
+        while(ind <= n){
+            arr[ind] += val;
             ind += ind & (-ind);
         }
     }
-    
-    public int sumRange(int i, int j) {
+    public void update(int i, int val) {
+        int diff = val - ele[i];
+        updateHelper(i,diff);
+        ele[i] = val;
+    }
+    public int getSum(int i){
         int sum = 0;
-        j++;
-        while (j > 0) {
-            sum += tree[j];
-            j -= j & (-j);
-        }
-        while (i > 0) {
-            sum -= tree[i];
-            i -= i & (-i);
+        int ind = i;
+        while(ind > 0){
+            sum += arr[ind];
+            ind -= ind & (-ind);
         }
         return sum;
+    }
+    public int sumRange(int i, int j) {
+        return getSum(j+1) - getSum(i);
     }
 }
