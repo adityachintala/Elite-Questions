@@ -32,13 +32,13 @@
 // Sample Output:
 // --------------
 // 75
-// 86
+// 86  
 // 80
 
 
 import java.util.*;
 
-public class Solution {
+class Solution {
     int n;
     int arr[],ele[];
     public Solution(int nums[]){
