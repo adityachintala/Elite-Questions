@@ -62,6 +62,7 @@ public class d54p2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.next();
+        sc.close();
         int n = input.length();
         String ans = "";
         int j = 0;
