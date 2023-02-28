@@ -32,25 +32,6 @@ Output2:1
 /**
  * d59p3
  */
-/*
- * #include<bits/s  tdc++.h>
- * using namespace std;
- * 
- * int main(){
- *    int n;
- *    cin>>n;
- *    string s = " 122";
- *    for (int i = 3; i <= n; ++i) {
- *       if (i & 1) {
- *           s.append(s[i] - '0', '1');
- *       } else {
- *           s.append(s[i] - '0', '2');
- *       }
- *    }
- *    cout<<count(s.begin(), s.begin() + n + 1, '1');
- *    return 0;
- * }
- */
 
 import java.util.*;
 
