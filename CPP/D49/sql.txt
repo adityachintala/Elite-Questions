@@ -1,0 +1,92 @@
+/*
+Display the name of the employee/s earking second highest salary of EMP table
+
+Sample Output:
+    ename                                                                                                                   
+    SCOTT                                                                                                                   
+
+*/
+SELECT ename
+FROM emp
+WHERE sal = (
+  SELECT MAX(sal)
+  FROM emp
+  WHERE sal < (
+    SELECT MAX(sal)
+    FROM emp
+  )
+)
+
+
+
+
+/*
+Display the department numbers and count of employees in it,
+with more than three employees in each dept.    
+
+Sample Output:
+-------------
+deptno  count                                                                                                           
+20      6                                                                                                               
+
+*/
+SELECT deptno, COUNT(*) as count
+FROM emp
+GROUP BY deptno
+HAVING COUNT(*) > 3
+
+
+
+
+/*
+Display the department number, minimum salary, maximum salary of each department 	
+
+Sample Output:
+--------------
+deptno  min_salary      max_salary                                                                                      
+10      1300.00         2450.00  
+
+*/
+SELECT deptno, MIN(sal) as min_salary, MAX(sal) as max_salary
+FROM emp
+GROUP BY deptno
+
+
+
+
+
+
+/*
+Write a query to display ename, dname, location of employee 
+( join ‘emp’ and ‘dept’ tables) where employee name starts with  'A'.
+
+Sample Output:
+-------------
+ename   dname       location                                                                                                
+ALLEN   Accounting  New York                                                                                        
+
+*/
+SELECT e.ename, d.dname, d.location
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.ename LIKE 'A%'
+
+
+
+/*
+Write an sql query to display the empno, ename, sal, dname from emp,dept,
+the employees is either 'MANAGER' or 'ANALYST' working in ‘New York’ or ‘Dallas’
+and display in descending order of name.
+
+Sample Output:
+--------------
+empno   ename   sal     dname                                                                                           
+7788    SCOTT   3000.00 Research 
+
+*/
+SELECT e.empno, e.ename, e.sal, d.dname
+FROM emp e
+JOIN dept d ON e.deptno = d.deptno
+WHERE e.job IN ('MANAGER', 'ANALYST')
+  AND d.location IN ('New York', 'Dallas')
+ORDER BY e.ename DESC
