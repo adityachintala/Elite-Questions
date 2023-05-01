@@ -1,0 +1,124 @@
+/*
+Display the details of employees who are in sales dept and grade is 3.
+
+Sample Output:
+--------------
+empno   ename   job     mgr     hiredate        sal     comm    deptno                                                  
+7698    BLAKE   MANAGER 7839    1992-06-11      2850.00 NULL    30  
+
+*/
+SELECT * FROM emp WHERE deptno = 30 AND sal >= 1401 AND sal <= 4444;
+
+
+
+
+
+
+
+
+
+/*
+Display the names of employees from department number 40 with salary
+greater than that of any employee working in other departments.
+
+
+Sample Output:
+--------------
+ename   sal     deptno                                                                                                  
+KEVIN   5000.00 40                                                                                                      
+
+
+*/
+SELECT e1.ename, e1.sal, e1.deptno
+FROM emp e1
+WHERE e1.deptno = 40 AND e1.sal > ALL (
+  SELECT sal
+  FROM emp e2
+  WHERE e2.deptno != 40
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Display the job groups having total salary greater then the maximum salary for
+managers.
+
+Sample Output:
+--------------
+job     sum(sal)                                                                                                        
+ANALYST 6000.00
+
+*/
+SELECT job, SUM(sal) AS sum_sal
+FROM emp
+GROUP BY job
+HAVING SUM(sal) > (
+  SELECT MAX(sal)
+  FROM emp
+  WHERE job = 'MANAGER'
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Display the names of employees who earn highest salaries 
+in their respective job groups.
+
+Sample Output:
+--------------
+ename                                                                                                                   
+ALLEN   
+
+*/
+SELECT ename
+FROM emp e1
+WHERE sal = (
+  SELECT MAX(sal)
+  FROM emp e2
+  WHERE e1.job = e2.job
+);
+
+
+
+
+
+
+
+
+
+
+/*
+Display each job along with minimum sal being paid in each job group.
+
+Sample Output:
+--------------
+job     min(sal)                                                                                                        
+ANALYST 3000.00
+
+*/
+SELECT job, MIN(sal) AS min_sal
+FROM emp
+GROUP BY job;

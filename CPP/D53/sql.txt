@@ -1,0 +1,122 @@
+/*
+Display employees name, sal, deptno, hiredate and grade of employees who belongs
+to the dept no 10 or 30 but grade is not 4, and joined the company after 01-dec-81.
+
+Sample Output:
+--------------
+ename   sal     deptno  hiredate        grade                                                                           
+ALLEN   1600.00 10      1998-08-15      1                                                                               
+ALLEN   1600.00 10      1998-08-15      2                                                                               
+ALLEN   1600.00 10      1998-08-15      3                           
+
+*/
+select ename, sal, deptno, hiredate, grade from emp join salgrade 
+on (emp.sal>salgrade.losal and emp.sal<salgrade.hisal)
+where (deptno = 10 or deptno = 30 )
+and grade<>4 and 
+hiredate>'1981-12-01';
+
+
+
+
+
+
+
+
+/*
+Display employee name, job, deptname, location for all employees
+who are working as managers.
+
+Sample Output:
+--------------
+ename   job     dname       location                                                                                        
+CLARK   MANAGER Accounting  New York 
+
+
+*/
+
+select ename,job,dname,location from emp
+join dept on emp.deptno = dept.deptno
+where emp.empno in (select mgr from emp group by(mgr)) ;
+
+
+
+
+
+
+
+
+
+
+
+/*
+Display all the deatils of those employees whose salary greater 
+than his manager salary.
+
+
+Sample Output:
+--------------
+empno   ename   job     mgr     hiredate        sal     comm    deptno                                                  
+7788    SCOTT   ANALYST 7566    1996-03-05      3000.00 NULL    20  
+
+
+*/
+SELECT e.empno, e.ename, e.job, e.mgr, e.hiredate, e.sal, e.comm, e.deptno 
+FROM emp e 
+JOIN emp m ON e.mgr = m.empno 
+WHERE e.sal > m.sal;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Display employee number, name, salary and comm of those Salary 
+is in between 2000 to 5000 and the location is Chicago.
+
+Sample Output:
+--------------
+empno   ename   sal     comm                                                                                            
+7698    BLAKE   2850.00 NULL
+
+*/
+SELECT empno, ename, sal, comm 
+FROM emp 
+JOIN dept ON emp.deptno = dept.deptno 
+WHERE sal BETWEEN 2000 AND 5000 AND location = 'Chicago';
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Display all the details of those employees whose manager name is JONES.
+
+Sample Output:
+--------------
+empno   ename   job     mgr     hiredate        sal     comm    deptno                                                  
+7788    SCOTT   ANALYST 7566    1996-03-05      3000.00 NULL    20 
+
+
+*/
+
+SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno 
+FROM emp 
+WHERE mgr = (SELECT empno FROM emp WHERE ename = 'JONES');

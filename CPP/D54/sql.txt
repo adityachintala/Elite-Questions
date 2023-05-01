@@ -1,0 +1,100 @@
+/*
+Write an SQL query to display the name, job, salary of the employees in the 
+department with the highest average salary among all the departments.
+
+Sample Output:
+-------------
+ename   job     sal                                                                                                     
+MARTIN  SALESMAN        1250.00  
+
+*/
+select ename,job,sal from emp where deptno=
+(select deptno from emp group by(deptno) order by avg(sal) desc limit 1)
+
+
+
+
+
+
+/*
+Write an SQL query to display employee number,employee name and salary of the 
+employee(s) whose salary is less than his manager salary but more than any 
+other manager.
+
+Sample Output:
+-------------
+empno   ename   sal                                                                                                     
+7698    BLAKE   2850.00 
+
+*/
+select empno,ename,sal from emp e1 
+where sal< (select sal from emp e2 where e2.empno = e1.mgr) 
+and sal>any(select sal from emp e3 where e3.empno in (select mgr from emp e4 where e4.mgr != e1.mgr ));
+
+
+
+
+
+/*
+Write an SQL query to display all the details of managers who are not working 
+under the president.
+
+Sample Output:
+-------------
+empno   ename   job     mgr     hiredate        sal     comm    deptno                                                  
+7902    FORD    ANALYST 7566    1997-12-05      3000.00 NULL    20 
+
+*/
+
+select * from emp where empno in (select distinct(mgr) from emp) and mgr != (select empno from emp where job='president');
+
+
+
+
+
+
+
+
+
+
+/*
+Write an SQL query to list out(ename,mgr,and sal) the lowest paid employees 
+working for each manager,exclude any employee whose salary is less than 1000 
+sort the output by salary.
+
+Sample Output:
+-------------
+ename   mgr     sal                                                                                                     
+FORD    7782    1300.00                                                                                                 
+SCOTT   7566    3000.00                                                                                                 
+
+*/
+SELECT ename, mgr, sal
+FROM emp e1
+WHERE sal >= 1000 AND sal = (SELECT MIN(sal) FROM emp e2 WHERE e1.mgr = e2.mgr)
+ORDER BY sal;
+
+
+
+
+
+
+
+
+
+
+/*
+Write a query to find CTC to Company.
+
+Note: CTC is annual salary of all employees.
+Annual Salary is 12*sum(sal+comm); check if comm is null set to 0.
+
+Note:Table name: "emp"
+
+Sample Output:
+------------
+CTC                                                                                                                     
+374700.00 
+
+*/
+SELECT SUM(12 * (sal + IFNULL(comm, 0))) AS CTC FROM emp;
